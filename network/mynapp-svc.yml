@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mynapp-svc
+spec:
+  ports:
+  - port: 80 # 서비스 포트
+    targetPort: 8080 # 파드의 포트
+  selector:
+    app: mynapp-rs # 파드 레이블 셀렉터

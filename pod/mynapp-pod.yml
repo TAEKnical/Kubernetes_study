@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynapp-pod
+spec:
+  containers:
+  - image: taeknical/myweb
+    name: myapp
+    ports:
+    - containerPort: 8080
+      protocol: TCP

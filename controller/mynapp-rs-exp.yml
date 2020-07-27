@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mynapp-rs-exp
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          -mynapp-rs-exp
+    template:
+      metadata:
+        labels:
+          app: mynapp-rs-exp
+          env: dev
+      spec:
+        containers:
+        - name: mynapp
+          image: taeknical/myweb
+          ports:
+          - containerPort: 8080
