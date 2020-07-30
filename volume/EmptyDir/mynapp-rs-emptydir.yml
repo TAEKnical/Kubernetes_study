@@ -22,7 +22,7 @@ spec:
         ports:
         - containerPort: 80
       - name: html-generator
-        image: taeknical/fortune
+        image: c1t1d0s7/fortune
         volumeMounts:
         - name: web-fortune
           mountPath: /var/htdocs
