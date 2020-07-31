@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: wordpress-ing-tls-term
+spec:
+  tls:
+  - hosts:
+    - wordpress.jintae.com
+    secretName: wp-tls-secret
+  rules:
+  - host: wordpress.jintae.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: wordpress-svc-ext-np
+          servicePort: 80
