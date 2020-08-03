@@ -13,5 +13,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: wordpress-svc-ext-np
+          serviceName: wordpress-svc-cluster
           servicePort: 80

@@ -27,9 +27,22 @@ spec:
           exec:
             command:
               - ls
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
+              - /var/www/html  
         ports:
         - containerPort: 80
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql
+        - name: WORDPRESS_DB_USER
+          value: wpuser
+        - name: WORDPRESS_DB_PASSWORD
+          value: toor
+        - name: WORDPRESS_DB_NAME
+          value: wordpress
+        volumeMounts:
+        - name: wp-content
+          mountPath: /var/www/html
+      volumes:
+      - name: wp-content
+        persistentVolumeClaim:
+        - claimName: wordpress-pvc
